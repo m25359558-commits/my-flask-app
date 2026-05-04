@@ -1,7 +1,11 @@
 import functions_framework
 from flask import Flask, jsonify, request
 
-# 1. Данные СТУДЕНТА (взяты из твоих документов)
+# Создаем приложение Flask СНАРУЖИ всех условий, чтобы Render его видел
+app = Flask(__name__)
+app.config['JSON_AS_ASCII'] = False
+
+# 1. Данные СТУДЕНТА
 STUDENT_DATA = {
     "role": "student",
     "personal_info": {
@@ -23,7 +27,7 @@ STUDENT_DATA = {
     }
 }
 
-# 2. Данные ПРЕПОДАВАТЕЛЯ (пример структуры)
+# 2. Данные ПРЕПОДАВАТЕЛЯ
 TEACHER_DATA = {
     "role": "teacher",
     "personal_info": {
@@ -39,32 +43,26 @@ TEACHER_DATA = {
     }
 }
 
-
-@functions_framework.http
-def get_profile(request):
-    # Настройка CORS для работы с мобильным приложением
+# Основная функция обработки
+def get_profile_logic(req):
     headers = {'Access-Control-Allow-Origin': '*'}
-
-    # Логика: если в запросе есть параметр role=teacher, отдаем препода
-    # Иначе по умолчанию отдаем студента
-    role = request.args.get('role', 'student')
-
+    role = req.args.get('role', 'student')
     if role == 'teacher':
         return jsonify(TEACHER_DATA), 200, headers
     return jsonify(STUDENT_DATA), 200, headers
 
+# Маршрут для Flask (для Render)
+@app.route('/')
+def index():
+    return get_profile_logic(request)
 
-# Блок для локального запуска на твоем компьютере
+# Обработчик для Cloud Functions (если вдруг захочешь вернуться)
+@functions_framework.http
+def get_profile(request):
+    return get_profile_logic(request)
+
+# Блок для запуска на твоем ПК
 if __name__ == "__main__":
-    app = Flask(__name__)
-    app.config['JSON_AS_ASCII'] = False  # Чтобы русский текст не превращался в кракозябры
-
-
-    @app.route('/')
-    def index():
-        return get_profile(request)
-
-
     print("\n[OK] Сервер запущен!")
     print("[СТУДЕНТ]: http://127.0.0.1:5000/")
     print("[ПРЕПОДАВАТЕЛЬ]: http://127.0.0.1:5000/?role=teacher")
