@@ -19,20 +19,22 @@ STUDENT_DATA = {
         "photo_url": "https://i.pinimg.com/originals/33/53/e8/3353e89fa1f7f773aa830563aca0f90c.jpg"
     },
   "academic_info": {
-
-        "faculty": "Центр профессиональной подготовки",
-
-        "status": "Обучается",
-
-        "program_type": "Магистратура",
-
-        "specialty": "7M04107 - Деловое администратирование (EMBA)",
-
-        "study_form": "Очная",
-
-        "current_year": "1-й год обучения",
+      "responsible_for_contingent":"Центр профессиональной подготовки",
+      "faculty":"Центр профессиональной подготовки",
+      "department":"Центр профессиональной подготовки",
+      "status":"обучается",
+      "year":"2025-2026",
+      "programType":"Магистратура",
+      "educationalProgram":"7M04107-Дело административное",
+      "trainingFormat":"очная",
+      "Departments":"Русское",
+      "educationalLevel":"высшего образования",
+      "durationTraining":"1 год",
+      "yearStudy":"1-й год обучения",
+      "TypeAcademicPeriod":"семестровая система",
+      "financing":"договор 2-х сторонний",
+      "typeCurriculum":"центр профессиональной подготовки"
       
-       "educational_program":"uhihihuihhuiiuuiiiiiiiiiiiii"
     } 
 }
 
