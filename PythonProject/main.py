@@ -33,7 +33,7 @@ TEACHER_DATA = {
     "role": "teacher",
     "personal_info": {
         "full_name": "Иванов Иван Иванович",
-        "id_employee": "10020030",
+        "iin": "10020030",
         "email": "30938888187@turan-edu.kz",
         "phone": "+7(777)123-45-67"
     },
