@@ -15,7 +15,8 @@ STUDENT_DATA = {
         "email": "215452@turan-edu.kz",
         "phone": "+7(701)734-83-67",
         "birth_date": "10.12.1980",
-        "citizenship": "Гражданин Республики Казахстан"
+        "citizenship": "Гражданин Республики Казахстан",
+        "photo_url": "https://i.pinimg.com/originals/33/53/e8/3353e89fa1f7f773aa830563aca0f90c.jpg"
     },
     "academic_info": {
         "faculty": "Центр профессиональной подготовки",
@@ -39,7 +40,8 @@ TEACHER_DATA = {
     "professional_info": {
         "faculty": "Информационные технологии",
         "department": "Программная инженерия",
-        "position": "Профессор"
+        "position": "Профессор",
+        "photo_url": "https://img.freepik.com/premium-psd/portrait-attractive-calm-bearded-man-with-flawless-skin-isolated-light-transparent-background_410516-124384.jpg?w=740"
     }
 }
 
