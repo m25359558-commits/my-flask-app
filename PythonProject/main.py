@@ -12,7 +12,7 @@ STUDENT_DATA = {
         "full_name": "Шавдинов Асан Нурахметович",
         "id_contingent": "25263111",
         "iin": "801210300993",
-        "email": "",
+        "email": "215452@turan-edu.kz",
         "phone": "+7(701)734-83-67",
         "birth_date": "10.12.1980",
         "citizenship": "Гражданин Республики Казахстан"
@@ -33,7 +33,7 @@ TEACHER_DATA = {
     "personal_info": {
         "full_name": "Иванов Иван Иванович",
         "id_employee": "10020030",
-        "email": "",
+        "email": "30938888187@turan-edu.kz",
         "phone": "+7(777)123-45-67"
     },
     "professional_info": {
