@@ -31,7 +31,7 @@ STUDENT_DATA = {
         "study_form": "Очная",
 
         "current_year": "1-й год обучения"
-      "educational_program":"магистротура"
+       "educational_program":"uhihihuihhuiiuuiiiiiiiiiiiii"
     } 
 }
 
