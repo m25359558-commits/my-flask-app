@@ -19,7 +19,7 @@ STUDENT_DATA = {
         "photo_url": "https://i.pinimg.com/originals/33/53/e8/3353e89fa1f7f773aa830563aca0f90c.jpg"
     },
     "academic_info": {
-      "responsible_for_contingent": "Центр профессиональной подготовки",
+        "responsible_for_contingent": "Центр профессиональной подготовки",
         "faculty": "Центр профессиональной подготовки",
         "department": "Центр профессиональной подготовки",
         "status": "Обучается",
@@ -28,13 +28,12 @@ STUDENT_DATA = {
         "educational_program": "7M04107 - Деловое администрирование (EMBA)",
         "study_form": "Очная",
         "division": "Русское",
-        "education_level": "высшего образования",
+        "education_level": "высшее образование",
         "study_period": "1 год",
         "current_year": "1-й год обучения",
         "academic_period_type": "Семестровая система",
         "financing_type": "Договор 2-х сторонний",
-        "curriculum_type": "Центр профессиональной подготовки"
-        
+        "curriculum_type": "Центр профессиональной подготовки" # Проверь кавычки тут!
     }
 }
 
