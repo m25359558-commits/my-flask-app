@@ -18,23 +18,20 @@ STUDENT_DATA = {
         "citizenship": "Гражданин Республики Казахстан", 
         "photo_url": "https://i.pinimg.com/originals/33/53/e8/3353e89fa1f7f773aa830563aca0f90c.jpg"
     },
-    "academic_info": {
-        "responsible_for_contingent": "Центр профессиональной подготовки",
+  "academic_info": {
+
         "faculty": "Центр профессиональной подготовки",
-        "department": "Центр профессиональной подготовки",
+
         "status": "Обучается",
-        "year_of_up": "2025 - 2026",
+
         "program_type": "Магистратура",
-        "educational_program": "7M04107 - Деловое администрирование (EMBA)",
+
+        "specialty": "7M04107 - Деловое администратирование (EMBA)",
+
         "study_form": "Очная",
-        "division": "Русское",
-        "education_level": "высшее образование",
-        "study_period": "1 год",
-        "current_year": "1-й год обучения",
-        "academic_period_type": "Семестровая система",
-        "financing_type": "Договор 2-х сторонний",
-        "curriculum_type": "Центр профессиональной подготовки" # Проверь кавычки тут!
-    }
+
+        "current_year": "1-й год обучения"
+    } 
 }
 
 # 2. Данные ПРЕПОДАВАТЕЛЯ
