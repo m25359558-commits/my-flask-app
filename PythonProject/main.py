@@ -126,6 +126,7 @@ STUDENT_DATA = {
             ]
         }
     ]
+},
 
 # 2. Данные ПРЕПОДАВАТЕЛЯ
 TEACHER_DATA = {
