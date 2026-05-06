@@ -69,6 +69,83 @@ STUDENT_DATA = {
     "socores_transcript":"Баллы Транскрипт(Итого в процентах,Итого в балах) должны содержать все выставленные и перезачтенные дисциплины с момента начала обучения на текущей образовательной программе.",
     },
 # Таблица, разделенная по учебным периодам
+    "academic_periods": [
+    {
+        "period_title": "2025 - 2026 учебный год, 2 семестр (2026 год, весна)",
+        "subjects": [
+            {
+                "name": "Академическое письмо",
+                "code": "AP B01",
+                "credits": 4,
+                "rk1": {"score": "30", "teacher": "Алдабергенқызы Л."},
+                "rk2": {"score": "72", "teacher": "Алдабергенқызы Л."},
+                "exam": "-",
+                "total_percent": "-",
+                "total_score": "-"
+            },
+            {
+                "name": "Введение в предпринимательство",
+                "code": "VP B01",
+                "credits": 5,
+                "rk1": {"score": "60", "teacher": "Муратов У. М."},
+                "rk2": {"score": "50", "teacher": "Сисенова А. Т."},
+                "exam": "-",
+                "total_percent": "-",
+                "total_score": "-"
+            },
+            {
+                "name": "Второй иностранный язык - IV",
+                "code": "VIYa(IV) B01",
+                "credits": 5,
+                "rk1": {"score": "79", "teacher": "Комекова М. О."},
+                "rk2": {"score": "76", "teacher": "Комекова М. О."},
+                "exam": "-",
+                "total_percent": "-",
+                "total_score": "-"
+            },
+            {
+                "name": "Креативное мышление",
+                "code": "KM B01",
+                "credits": 3,
+                "rk1": {"score": "50", "teacher": "Тулекова Г. Х."},
+                "rk2": {"score": "75", "teacher": "Елекенова М. М."},
+                "exam": "-",
+                "total_percent": "-",
+                "total_score": "-"
+            },
+            {
+                "name": "Производственная практика - II",
+                "code": "PP(II) B01",
+                "credits": 4,
+                "rk1": {"score": "-", "teacher": ""},
+                "rk2": {"score": "-", "teacher": ""},
+                "exam": "-",
+                "total_percent": "-",
+                "total_score": "-"
+            },
+            {
+                "name": "Услуги по переводу",
+                "code": "UP B01",
+                "credits": 5,
+                "rk1": {"score": "90", "teacher": "Головчун А. А."},
+                "rk2": {"score": "90", "teacher": "Головчун А. А."},
+                "exam": "-",
+                "total_percent": "-",
+                "total_score": "-"
+            },
+            {
+                "name": "Финансовое сопровождение бизнеса",
+                "code": "FSB B01",
+                "credits": 5,
+                "rk1": {"score": "68", "teacher": "Мухамедьярова-Левина Т. Т."},
+                "rk2": {"score": "65", "teacher": "Мухамедьярова-Левина Т. Т."},
+                "exam": "-",
+                "total_percent": "-",
+                "total_score": "-"
+            }
+        ]
+    }
+]
   
 }
 
