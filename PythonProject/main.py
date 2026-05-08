@@ -242,9 +242,14 @@ TEACHER_DATA = {
     "role": "teacher",
     "personal_info": {
         "full_name": "Иванов Иван Иванович",
+        "work":"Депортамент по академическим вопросам/ директор",
         "iin": "10020030",
         "email": "30938888187@turan-edu.kz",
-        "phone": "+7(777)123-45-67"
+        "mob_phone": "+7(777)123-45-67",
+        "work_phone":"+7(727)260-40-07",
+        "work_phone2":"1030",
+        "body":"павильон №1/UN 301",
+        "Birthday":"Мужской/10 октября"
     },
     "professional_info": {
         "faculty": "Информационные технологии",
