@@ -265,7 +265,15 @@ TEACHER_DATA = {
         "division":"Высшая школа информационных технологий",
          "post":"проффесор",
     "bet":"0.50"
-    }
+    },
+    # информация об ученой степени
+    "information_about_academic_degree":{
+    "academic_degree":"доктор наук",
+    "academic_degree1":"кандидант наук",
+    "branch_science":"технических наук",
+    "branch_science2":"физо-математическх наук",
+    "date_issue":"16.06.2011",
+    "date_issue2":"21.12.1993"
 }
 
 # Основная функция обработки
