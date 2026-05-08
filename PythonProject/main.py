@@ -259,7 +259,7 @@ TEACHER_DATA = {
         "position": "Директор",
         "bet":"1",
         "photo_url": "https://img.freepik.com/premium-psd/portrait-attractive-calm-bearded-man-with-flawless-skin-isolated-light-transparent-background_410516-124384.jpg?w=740"
-    }
+    },
     #Информация о дополнительных должностях
     "additional_positions":{
         "division":"Высшая школа информационных технологий",
