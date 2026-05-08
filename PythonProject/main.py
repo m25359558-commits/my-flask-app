@@ -16,7 +16,9 @@ STUDENT_DATA = {
         "phone": "+7(701)734-83-67",
         "birth_date": "10.12.1980",
         "citizenship": "Гражданин Республики Казахстан", 
-        "photo_url": "https://i.pinimg.com/originals/33/53/e8/3353e89fa1f7f773aa830563aca0f90c.jpg"
+        "photo_url": "https://i.pinimg.com/originals/33/53/e8/3353e89fa1f7f773aa830563aca0f90c.jpg",
+        "floor":"Мужской",
+        "age":"45 лет"
     },
     "academic_info": {
         "responsible_for_contingent":"Центр профессиональной подготовки",
