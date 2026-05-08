@@ -275,6 +275,7 @@ TEACHER_DATA = {
     "date_issue":"16.06.2011",
     "date_issue2":"21.12.1993"
 }
+}
 
 # Основная функция обработки
 def get_profile_logic(req):
