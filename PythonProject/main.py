@@ -252,9 +252,12 @@ TEACHER_DATA = {
         "Birthday":"Мужской/10 октября"
     },
     "professional_info": {
+        "status":"работает",
+        "division":"депортамент по академическим вопросам",
         "faculty": "Информационные технологии",
         "department": "Программная инженерия",
-        "position": "Профессор",
+        "position": "Директор",
+        "bet":"1",
         "photo_url": "https://img.freepik.com/premium-psd/portrait-attractive-calm-bearded-man-with-flawless-skin-isolated-light-transparent-background_410516-124384.jpg?w=740"
     }
 }
