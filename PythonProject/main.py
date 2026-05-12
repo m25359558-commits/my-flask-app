@@ -306,14 +306,14 @@ TEACHER_DATA = {
         "Hirsch_Index":"-",
     },
     "scientific_statistics": [
-    {"label": "Публикации", "total": "12", "period": "6", "is_sub": false},
-    {"label": "Scopus", "total": "3", "period": "2", "is_sub": true},
-    {"label": "WoS", "total": "0", "period": "0", "is_sub": true},
-    {"label": "РИНЦ", "total": "0", "period": "0", "is_sub": true},
-    {"label": "Комитет по обеспечению качества...", "total": "0", "period": "0", "is_sub": true},
-    {"label": "Иное", "total": "9", "period": "4", "is_sub": true},
-    {"label": "Охранные документы", "total": "0", "period": "×", "is_sub": false},
-    {"label": "Договоры сопр. НИР и ИД", "total": "0", "period": "×", "is_sub": false}
+    {"label": "Публикации", "total": "12", "period": "6", "is_sub": False},
+    {"label": "Scopus", "total": "3", "period": "2", "is_sub": True},
+    {"label": "WoS", "total": "0", "period": "0", "is_sub": True},
+    {"label": "РИНЦ", "total": "0", "period": "0", "is_sub": True},
+    {"label": "Комитет по обеспечению качества...", "total": "0", "period": "0", "is_sub": True},
+    {"label": "Иное", "total": "9", "period": "4", "is_sub": True},
+    {"label": "Охранные документы", "total": "0", "period": "×", "is_sub": False},
+    {"label": "Договоры сопр. НИР и ИД", "total": "0", "period": "×", "is_sub": False}
 ]
 }
 
