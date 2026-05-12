@@ -286,10 +286,10 @@ TEACHER_DATA = {
 },
     #Информация о повышении квалификации
     "Information_about_professional_development":{
-        "discipline_profile1":"",
-        "discipline_profile2":"",
-        "discipline_profile3":"",
-        "discipline_profile4":"",
+        "discipline_profile1":"-",
+        "discipline_profile2":"-",
+        "discipline_profile3":"-",
+        "discipline_profile4":"-",
         "form_name_topic1":"Курс:IT-менеджмент и управление технологическими проектами",
          "form_name_topic2":"Курс: Криптографическая защита и безопасность операционных и облачных IT - систем",
          "form_name_topic3":"Курс: IT- менеджмент и управление технологическими пректами",
@@ -298,7 +298,23 @@ TEACHER_DATA = {
          "data2":"02.02.2026",
          "data3":"02.02.2026",
          "data4":"02.02.2026",
-    }
+    },
+    #Идентификаторы автора научных трудов
+    "Identifiers_author_scientific_papers":{
+        "ORC_ID":"0000-0001-8280-1837",
+        "Researcher_ID":"JPE-5229-2023",
+        "Hirsch_Index":"-"
+    },
+    "scientific_statistics": [
+    {"label": "Публикации", "total": "12", "period": "6", "is_sub": false},
+    {"label": "Scopus", "total": "3", "period": "2", "is_sub": true},
+    {"label": "WoS", "total": "0", "period": "0", "is_sub": true},
+    {"label": "РИНЦ", "total": "0", "period": "0", "is_sub": true},
+    {"label": "Комитет по обеспечению качества...", "total": "0", "period": "0", "is_sub": true},
+    {"label": "Иное", "total": "9", "period": "4", "is_sub": true},
+    {"label": "Охранные документы", "total": "0", "period": "×", "is_sub": false},
+    {"label": "Договоры сопр. НИР и ИД", "total": "0", "period": "×", "is_sub": false}
+]
 }
 
 # Основная функция обработки
