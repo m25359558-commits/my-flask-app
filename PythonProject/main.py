@@ -305,16 +305,47 @@ TEACHER_DATA = {
         "Researcher_ID":"JPE-5229-2023",
         "Hirsch_Index":"-",
     },
-    "scientific_statistics": [
-    {"label": "Публикации", "total": "12", "period": "6", "is_sub": False},
-    {"label": "Scopus", "total": "3", "period": "2", "is_sub": True},
-    {"label": "WoS", "total": "0", "period": "0", "is_sub": True},
-    {"label": "РИНЦ", "total": "0", "period": "0", "is_sub": True},
-    {"label": "Комитет по обеспечению качества...", "total": "0", "period": "0", "is_sub": True},
-    {"label": "Иное", "total": "9", "period": "4", "is_sub": True},
-    {"label": "Охранные документы", "total": "0", "period": "×", "is_sub": False},
-    {"label": "Договоры сопр. НИР и ИД", "total": "0", "period": "×", "is_sub": False}
-]
+   "scientific_statistics": {
+    "pub_label": "Публикации", 
+       "pub_total": "12", 
+       "pub_5y": "6",
+       "pub_is_sub": False,
+    
+    "scopus_label": "Scopus", 
+       "scopus_total": "3",
+       "scopus_5y": "2", 
+       "scopus_is_sub": True,
+    
+    "wos_label": "WoS", 
+       "wos_total": "0", 
+       "wos_5y": "0",
+       "wos_is_sub": True,
+    
+    "rinc_label": "РИНЦ",
+       "rinc_total": "0", 
+       "rinc_5y": "0", 
+       "rinc_is_sub": True,
+    
+    "koks_label":"Комитет (КОКСНВО)", 
+       "koks_total": "0",
+       "koks_5y": "0",
+       "koks_is_sub": True,
+    
+    "other_label": "Иное",
+       "other_total": "9", 
+       "other_5y": "4", 
+       "other_is_sub": True,
+    
+    "docs_label": "Охранные документы",
+       "docs_total": "0",
+       "docs_5y": "×", 
+       "docs_is_sub": False,
+    
+    "nir_label": "Договоры НИР", 
+       "nir_total": "0",
+       "nir_5y": "×",
+       "nir_is_sub": False
+}
 }
 
 # Основная функция обработки
