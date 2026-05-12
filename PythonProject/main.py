@@ -274,6 +274,15 @@ TEACHER_DATA = {
     "branch_science2":"физо-математическх наук",
     "date_issue":"16.06.2011",
     "date_issue2":"21.12.1993"
+},
+    #Инфо об учебном звании
+"Information_about_academic_title":{
+    "academic_rank_1":"Доцент",
+    "academic_rank_2":"Профессор",
+    "specialization_1":"Информатика, вычислительная техника и автоматизация",
+    "specialization_2":"Информатика",
+    "date_issue_1":"06.06.1997",
+    "date_issue_2":"28.04.2005"
 }
 }
 
