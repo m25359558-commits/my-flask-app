@@ -283,7 +283,22 @@ TEACHER_DATA = {
     "specialization_2":"Информатика",
     "date_issue_1":"06.06.1997",
     "date_issue_2":"28.04.2005"
-}
+},
+    #Информация о повышении квалификации
+    "Information_about_professional_development":{
+        "discipline_profile1":"",
+        "discipline_profile2":"",
+        "discipline_profile3":"",
+        "discipline_profile4":"",
+        "form_name_topic1":"Курс:IT-менеджмент и управление технологическими проектами",
+         "form_name_topic2":"Курс: Криптографическая защита и безопасность операционных и облачных IT - систем",
+         "form_name_topic3":"Курс: IT- менеджмент и управление технологическими пректами",
+         "form_name_topic4":"Курс: IT- менеджмент и управление цифровыми пректами",
+         "data1":"02.02.2026",
+         "data2":"02.02.2026",
+         "data3":"02.02.2026",
+         "data4":"02.02.2026",
+    }
 }
 
 # Основная функция обработки
