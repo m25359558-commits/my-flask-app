@@ -303,7 +303,7 @@ TEACHER_DATA = {
     "Identifiers_author_scientific_papers":{
         "ORC_ID":"0000-0001-8280-1837",
         "Researcher_ID":"JPE-5229-2023",
-        "Hirsch_Index":"-"
+        "Hirsch_Index":"-",
     },
     "scientific_statistics": [
     {"label": "Публикации", "total": "12", "period": "6", "is_sub": false},
