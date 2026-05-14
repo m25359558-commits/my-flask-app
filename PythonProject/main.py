@@ -17,7 +17,7 @@ STUDENT_DATA = {
         "birth_date": "10.12.1980",
         "citizenship": "Гражданин Республики Казахстан", 
         "photo_url": "https://i.pinimg.com/originals/33/53/e8/3353e89fa1f7f773aa830563aca0f90c.jpg",
-        "floor":"Мужской",
+        "floor":"Мужской/10.12.1980/45 лет",
         "age":"45 лет"
     },
     "academic_info": {
