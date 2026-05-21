@@ -7,6 +7,7 @@ app.config['JSON_AS_ASCII'] = False
 
 # 1. Данные СТУДЕНТА
 STUDENT_DATA = {
+    "m25359558@gmail.com":{
     "role": "student",
     "personal_info": {
         "full_name": "Шавдинов Асан Нурахметович",
@@ -236,6 +237,7 @@ STUDENT_DATA = {
             "gpa": "3.00"
         }
     ]
+    }
 }
 
 # 2. Данные ПРЕПОДАВАТЕЛЯ
