@@ -7,8 +7,9 @@ app.config['JSON_AS_ASCII'] = False
 
 # 1. Данные СТУДЕНТА
 STUDENT_DATA = {
-    "m25359558@gmail.com":{
+ 
     "role": "student",
+    # личная инфа
     "personal_info": {
         "full_name": "Шавдинов Асан Нурахметович",
         "id_contingent": "25263111",
@@ -21,6 +22,7 @@ STUDENT_DATA = {
         "floor":"Мужской/10.12.1980/45 лет",
         "age":"45 лет"
     },
+        # информация об учебном потоке 
     "academic_info": {
         "responsible_for_contingent":"Центр профессиональной подготовки",
         "faculty":"Центр профессиональной подготовки",
@@ -237,12 +239,13 @@ STUDENT_DATA = {
             "gpa": "3.00"
         }
     ]
-    }
+    
 }
 
 # 2. Данные ПРЕПОДАВАТЕЛЯ
 TEACHER_DATA = {
     "role": "teacher",
+    # личная информация 
     "personal_info": {
         "full_name": "Иванов Иван Иванович",
         "work":"Депортамент по академическим вопросам/ директор",
@@ -254,6 +257,7 @@ TEACHER_DATA = {
         "body":"павильон №1/UN 301",
         "Birthday":"Мужской/10 октября"
     },
+    # Информвция об основной должности 
     "professional_info": {
         "status":"работает",
         "division":"депортамент по академическим вопросам",
@@ -308,6 +312,7 @@ TEACHER_DATA = {
         "Researcher_ID":"JPE-5229-2023",
         "Hirsch_Index":"-",
     },
+    # статистика по научной дейтельности
    "scientific_statistics": {
     "pub_label": "Публикации", 
        "pub_total": "12", 
@@ -349,6 +354,7 @@ TEACHER_DATA = {
        "nir_5y": "×",
        "nir_is_sub": False
 },
+    # Информацио об научной дейтельности 
     "scientific_info": {
     "sci_dir_1": "Естественные науки, математика и статистика",
     "sci_role_1": "Автор",
@@ -365,6 +371,7 @@ TEACHER_DATA = {
     "sci_title_3": "Учебное пособие: ЖОБАЛАРДЫ БАСҚАРУ: MS PROJECT БОЙЫНША",
     "sci_level_3": "Республиканский"
   },
+    # информация о дисциплинах 
     "discipline_info": {
   "disc_name_1": "PVSOUTU M01 - Практикум по внедрению стандартов в области управления IT услугами",
   "disc_load_1": "Лекция, Практика, СРОП",
