@@ -335,7 +335,7 @@ TEACHER_DATA = {
        "rinc_5y": "0", 
        "rinc_is_sub": True,
     
-    "koks_label":"Комитет (КОКСНВО)", 
+    "koks_label":"Комитет по обеспечению качества в сфере нвуки и высшего образования МНВО РК (КОКСНВО МНВО РК)", 
        "koks_total": "0",
        "koks_5y": "0",
        "koks_is_sub": True,
