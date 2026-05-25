@@ -310,6 +310,7 @@ TEACHER_DATA = {
     "Identifiers_author_scientific_papers":{
         "ORC_ID":"0000-0001-8280-1837",
         "Researcher_ID":"JPE-5229-2023",
+     "Scopus Author ID":"5146458424588",
         "Hirsch_Index":"-",
     },
     # статистика по научной дейтельности
