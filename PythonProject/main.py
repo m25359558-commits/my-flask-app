@@ -392,26 +392,65 @@ TEACHER_DATA = {
 }
 
 # Основная функция обработки
-def get_profile_logic(req):
+def verify_email_logic(req):
     headers = {'Access-Control-Allow-Origin': '*'}
-    role = req.args.get('role', 'student')
-    if role == 'teacher':
-        return jsonify(TEACHER_DATA), 200, headers
-    return jsonify(STUDENT_DATA), 200, headers
+    
+    # Получаем JSON-данные (почту и роль), которые прислал Flutter
+    data = req.get_json(silent=True)
+    
+    if not data:
+        return jsonify({"error": "Нет данных в запросе"}), 400, headers
+        
+    email = data.get('email', '').strip()
+    role = data.get('role', '')
+    
+    print(f"===> Попытка входа: {email} как {role}")
 
-# Маршрут для Flask (для Render)
+    # Логика для студента
+    if role == 'student':
+        if email in STUDENT_DATA:
+            # Отдаем данные ТОЛЬКО этого студента, а не всю базу
+            return jsonify(STUDENT_DATA[email]), 200, headers
+        else:
+            return jsonify({"error": "Студент с такой почтой не найден"}), 404, headers
+            
+    # Логика для преподавателя (если у тебя есть словарь TEACHER_DATA)
+    elif role == 'teacher':
+        if email in TEACHER_DATA:
+            return jsonify(TEACHER_DATA[email]), 200, headers
+        else:
+            return jsonify({"error": "Преподаватель с такой почтой не найден"}), 404, headers
+            
+    return jsonify({"error": "Неизвестная роль"}), 400, headers
+
+# 1. Тот самый маршрут, который ждет Flutter!
+@app.route('/api/auth/email', methods=['POST', 'OPTIONS'])
+def auth_email():
+    # OPTIONS нужен для браузеров и кросс-доменных запросов (CORS)
+    if request.method == 'OPTIONS':
+        return '', 204, {'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Content-Type'}
+    return verify_email_logic(request)
+
+# 2. Оставим корневой маршрут для проверки, что сервер жив
 @app.route('/')
 def index():
-    return get_profile_logic(request)
+    return jsonify({"status": "Сервер работает. Отправьте POST запрос на /api/auth/email"}), 200, {'Access-Control-Allow-Origin': '*'}
 
-# Обработчик для Cloud Functions (если вдруг захочешь вернуться)
+# Обработчик для Cloud Functions (если нужно)
 @functions_framework.http
 def get_profile(request):
-    return get_profile_logic(request)
+    # Обработка CORS для Cloud Functions
+    if request.method == 'OPTIONS':
+        headers = {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'POST',
+            'Access-Control-Allow-Headers': 'Content-Type',
+            'Access-Control-Max-Age': '3600'
+        }
+        return ('', 204, headers)
+    return verify_email_logic(request)
 
-# Блок для запуска на твоем ПК
 if __name__ == "__main__":
     print("\n[OK] Сервер запущен!")
-    print("[СТУДЕНТ]: http://127.0.0.1:5000/")
-    print("[ПРЕПОДАВАТЕЛЬ]: http://127.0.0.1:5000/?role=teacher")
+    print("API URL: http://127.0.0.1:5000/api/auth/email")
     app.run(host='0.0.0.0', port=5000)
