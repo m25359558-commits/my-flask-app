@@ -7,7 +7,7 @@ app.config['JSON_AS_ASCII'] = False
 
 # 1. Данные СТУДЕНТА
 STUDENT_DATA = {
- "m25359558@gmail.com":{
+ m25359558@gmail.com ={
     "role": "student",
     # личная инфа
     "personal_info": {
@@ -239,7 +239,7 @@ STUDENT_DATA = {
             "gpa": "3.00"
         }
     ]
-} 
+} ,
 }
 
 # 2. Данные ПРЕПОДАВАТЕЛЯ
