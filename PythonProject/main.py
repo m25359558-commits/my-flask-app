@@ -397,21 +397,29 @@ def verify_email_logic(request):
     if not data:
         return jsonify({"error": "Пустой запрос"}), 400
 
-    input_email = data.get('email', '').strip().lower() # Приводим к нижнему регистру
+    # Получаем данные и сразу убираем пробелы по краям
+    input_email = data.get('email', '').strip().lower()
     role = data.get('role', '')
 
+    # --- НАЧАЛО ОТЛАДКИ ---
+    print("\n" + "="*30)
+    print(f"[ЛОГ] Пришел запрос от приложения!")
+    print(f"[ЛОГ] Flutter прислал почту: '{input_email}'")
+    print(f"[ЛОГ] Flutter прислал роль: '{role}'")
+    print("="*30 + "\n")
+
     if role == 'teacher':
-        # Проходим циклом по всем преподавателям в базе
         for teacher_key, teacher_data in TEACHER_DATA.items():
-            # Достаем вложенный email из personal_info
             inner_email = teacher_data.get("personal_info", {}).get("email", "").strip().lower()
             
-            # Проверяем: совпадает ли введенная почта с верхним ключом ИЛИ с внутренним email
+            # Печатаем, с чем именно сервер пытается сравнить
+            print(f"[ПОИСК] Проверяем базу: Ключ='{teacher_key.lower()}', Внутренняя='{inner_email}'")
+
             if input_email == teacher_key.lower() or input_email == inner_email:
-                # Если совпало, возвращаем ВСЕ данные этого преподавателя
+                print(f"[УСПЕХ] Совпадение найдено для {input_email}!")
                 return jsonify(teacher_data), 200
         
-        # Если цикл прошел и ничего не нашел
+        print("[ОШИБКА] Цикл прошел по всей базе, совпадений нет.")
         return jsonify({"message": "Преподаватель с такой почтой не найден"}), 404
 
     return jsonify({"message": "Роль не распознана"}), 400
