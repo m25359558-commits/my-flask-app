@@ -392,36 +392,29 @@ TEACHER_DATA = {
 }
 
 # Основная функция обработки
-def verify_email_logic(req):
-    headers = {'Access-Control-Allow-Origin': '*'}
-    
-    # Получаем JSON-данные (почту и роль), которые прислал Flutter
-    data = req.get_json(silent=True)
-    
+def verify_email_logic(request):
+    data = request.get_json()
     if not data:
-        return jsonify({"error": "Нет данных в запросе"}), 400, headers
-        
-    email = data.get('email', '').strip()
-    role = data.get('role', '')
-    
-    print(f"===> Попытка входа: {email} как {role}")
+        return jsonify({"error": "Пустой запрос"}), 400
 
-    # Логика для студента
-    if role == 'student':
-        if email in STUDENT_DATA:
-            # Отдаем данные ТОЛЬКО этого студента, а не всю базу
-            return jsonify(STUDENT_DATA[email]), 200, headers
-        else:
-            return jsonify({"error": "Студент с такой почтой не найден"}), 404, headers
+    input_email = data.get('email', '').strip().lower() # Приводим к нижнему регистру
+    role = data.get('role', '')
+
+    if role == 'teacher':
+        # Проходим циклом по всем преподавателям в базе
+        for teacher_key, teacher_data in TEACHER_DATA.items():
+            # Достаем вложенный email из personal_info
+            inner_email = teacher_data.get("personal_info", {}).get("email", "").strip().lower()
             
-    # Логика для преподавателя (если у тебя есть словарь TEACHER_DATA)
-    elif role == 'teacher':
-        if email in TEACHER_DATA:
-            return jsonify(TEACHER_DATA[email]), 200, headers
-        else:
-            return jsonify({"error": "Преподаватель с такой почтой не найден"}), 404, headers
-            
-    return jsonify({"error": "Неизвестная роль"}), 400, headers
+            # Проверяем: совпадает ли введенная почта с верхним ключом ИЛИ с внутренним email
+            if input_email == teacher_key.lower() or input_email == inner_email:
+                # Если совпало, возвращаем ВСЕ данные этого преподавателя
+                return jsonify(teacher_data), 200
+        
+        # Если цикл прошел и ничего не нашел
+        return jsonify({"message": "Преподаватель с такой почтой не найден"}), 404
+
+    return jsonify({"message": "Роль не распознана"}), 400
 
 # 1. Тот самый маршрут, который ждет Flutter!
 @app.route('/api/auth/email', methods=['POST', 'OPTIONS'])
