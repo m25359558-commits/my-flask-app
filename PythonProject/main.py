@@ -391,67 +391,31 @@ TEACHER_DATA = {
 },
 }
 
-# Основная функция обработки
-def verify_email_logic(request):
-    data = request.get_json()
-    if not data:
-        return jsonify({"error": "Пустой запрос"}), 400
+def get_profile(request):
+    # Настройка CORS для работы с мобильным приложением
+    headers = {'Access-Control-Allow-Origin': '*'}
 
-    # Получаем данные и сразу убираем пробелы по краям
-    input_email = data.get('email', '').strip().lower()
-    role = data.get('role', '')
-
-    # --- НАЧАЛО ОТЛАДКИ ---
-    print("\n" + "="*30)
-    print(f"[ЛОГ] Пришел запрос от приложения!")
-    print(f"[ЛОГ] Flutter прислал почту: '{input_email}'")
-    print(f"[ЛОГ] Flutter прислал роль: '{role}'")
-    print("="*30 + "\n")
+    # Логика: если в запросе есть параметр role=teacher, отдаем препода
+    # Иначе по умолчанию отдаем студента
+    role = request.args.get('role', 'student')
 
     if role == 'teacher':
-        for teacher_key, teacher_data in TEACHER_DATA.items():
-            inner_email = teacher_data.get("personal_info", {}).get("email", "").strip().lower()
-            
-            # Печатаем, с чем именно сервер пытается сравнить
-            print(f"[ПОИСК] Проверяем базу: Ключ='{teacher_key.lower()}', Внутренняя='{inner_email}'")
+        return jsonify(TEACHER_DATA), 200, headers
+    return jsonify(STUDENT_DATA), 200, headers
 
-            if input_email == teacher_key.lower() or input_email == inner_email:
-                print(f"[УСПЕХ] Совпадение найдено для {input_email}!")
-                return jsonify(teacher_data), 200
-        
-        print("[ОШИБКА] Цикл прошел по всей базе, совпадений нет.")
-        return jsonify({"message": "Преподаватель с такой почтой не найден"}), 404
 
-    return jsonify({"message": "Роль не распознана"}), 400
-
-# 1. Тот самый маршрут, который ждет Flutter!
-@app.route('/api/auth/email', methods=['POST', 'OPTIONS'])
-def auth_email():
-    # OPTIONS нужен для браузеров и кросс-доменных запросов (CORS)
-    if request.method == 'OPTIONS':
-        return '', 204, {'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Content-Type'}
-    return verify_email_logic(request)
-
-# 2. Оставим корневой маршрут для проверки, что сервер жив
-@app.route('/')
-def index():
-    return jsonify({"status": "Сервер работает. Отправьте POST запрос на /api/auth/email"}), 200, {'Access-Control-Allow-Origin': '*'}
-
-# Обработчик для Cloud Functions (если нужно)
-@functions_framework.http
-def get_profile(request):
-    # Обработка CORS для Cloud Functions
-    if request.method == 'OPTIONS':
-        headers = {
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'POST',
-            'Access-Control-Allow-Headers': 'Content-Type',
-            'Access-Control-Max-Age': '3600'
-        }
-        return ('', 204, headers)
-    return verify_email_logic(request)
-
+# Блок для локального запуска на твоем компьютере
 if __name__ == "__main__":
+    app = Flask(__name__)
+    app.config['JSON_AS_ASCII'] = False  # Чтобы русский текст не превращался в кракозябры
+
+
+    @app.route('/')
+    def index():
+        return get_profile(request)
+
+
     print("\n[OK] Сервер запущен!")
-    print("API URL: http://127.0.0.1:5000/api/auth/email")
+    print("[СТУДЕНТ]: http://127.0.0.1:5000/")
+    print("[ПРЕПОДАВАТЕЛЬ]: http://127.0.0.1:5000/?role=teacher")
     app.run(host='0.0.0.0', port=5000)
