@@ -388,32 +388,44 @@ TEACHER_DATA = {
   "disc_period_3": "1 семестр"
 }
 }
-
-def get_profile(request):
-    # Настройка CORS для работы с мобильным приложением
+@app.route('/', methods=['GET'])
+def index():
     headers = {'Access-Control-Allow-Origin': '*'}
-
-    # Логика: если в запросе есть параметр role=teacher, отдаем препода
-    # Иначе по умолчанию отдаем студента
     role = request.args.get('role', 'student')
-
     if role == 'teacher':
         return jsonify(TEACHER_DATA), 200, headers
     return jsonify(STUDENT_DATA), 200, headers
 
+# 2. Маршрут для входа по Email (POST-запрос из Flutter)
+@app.route('/api/auth/email', methods=['POST', 'OPTIONS'])
+def auth_email():
+    headers = {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'POST',
+        'Access-Control-Allow-Headers': 'Content-Type'
+    }
+    
+    if request.method == 'OPTIONS':
+        return '', 204, headers
+
+    data = request.get_json()
+    if not data:
+        return jsonify({"error": "Пустой запрос"}), 400
+
+    role = data.get('role', '')
+    
+    # В этой версии у тебя просто один словарь-заглушка.
+    # Если в приложении выбрали "student", отдаем студента, если "teacher" - препода.
+    if role == 'teacher':
+        return jsonify(TEACHER_DATA), 200, headers
+    else:
+        return jsonify(STUDENT_DATA), 200, headers
+
 
 # Блок для локального запуска на твоем компьютере
 if __name__ == "__main__":
-    app = Flask(__name__)
-    app.config['JSON_AS_ASCII'] = False  # Чтобы русский текст не превращался в кракозябры
-
-
-    @app.route('/')
-    def index():
-        return get_profile(request)
-
-
     print("\n[OK] Сервер запущен!")
-    print("[СТУДЕНТ]: http://127.0.0.1:5000/")
-    print("[ПРЕПОДАВАТЕЛЬ]: http://127.0.0.1:5000/?role=teacher")
+    print("[GET СТУДЕНТ]: http://127.0.0.1:5000/")
+    print("[GET ПРЕПОДАВАТЕЛЬ]: http://127.0.0.1:5000/?role=teacher")
+    print("[POST ВХОД]: http://127.0.0.1:5000/api/auth/email")
     app.run(host='0.0.0.0', port=5000)
