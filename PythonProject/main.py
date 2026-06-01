@@ -10,6 +10,7 @@ STUDENT_DATA = {
     "role": "student",
     # личная инфа
     "personal_info": {
+        "ID_student":"1",
         "full_name": "Шавдинов Асан Нурахметович",
         "id_contingent": "25263111",
         "iin": "801210300993",
@@ -245,6 +246,7 @@ TEACHER_DATA = {
     "role": "teacher",
     # личная информация 
     "personal_info": {
+        "ID_Teacher":"2",
         "full_name": "Иванов Иван Иванович",
         "work":"Депортамент по академическим вопросам/ директор",
         "iin": "10020030",
