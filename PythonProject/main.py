@@ -242,7 +242,6 @@ STUDENT_DATA = {
 
 # 2. Данные ПРЕПОДАВАТЕЛЯ
 TEACHER_DATA = {
-"m25359558@gmail.com":{
     "role": "teacher",
     # личная информация 
     "personal_info": {
@@ -388,7 +387,6 @@ TEACHER_DATA = {
   "disc_lang_3": "Русский, Казахский",
   "disc_period_3": "1 семестр"
 }
-},
 }
 
 def get_profile(request):
