@@ -6,7 +6,7 @@ app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
 
 # ОБЩАЯ БАЗА ДАННЫХ: поиск происходит по email-адресу (ключу)
-USERS_DB = {
+STUDENT_DB = {
     # 1. ДАННЫЕ СТУДЕНТА (Ключ — его email)
     "m25359558@gmail.com": {
         "role": "student",
@@ -170,8 +170,10 @@ USERS_DB = {
             {"name": "Иностранный язык по социально-гуманитарному и естественно-научному направлению", "code": "IYaSGENN B01", "credits": 5, "rk1": "-", "rk2": "-", "exam": "-", "total_score": "82", "gpa": "3.00"}
         ]
     },
+}
 
     # 2. ДАННЫЕ ПРЕПОДАВАТЕЛЯ (Ключ — его email)
+TEACHER_DB = {
     "30938888187@turan-edu.kz": {
         "role": "teacher",
         "personal_info": {
@@ -250,7 +252,7 @@ USERS_DB = {
             "disc_name_2": "IODH M01 - ITSM: обзор и основные характеристики ITIL", "disc_load_2": "Лекция, Практика, СРОП", "disc_lang_2": "Русский, Казахский", "disc_period_2": "1 семестр",
             "disc_name_3": "SMI M01 - Стратегический менеджмент в ИТ сфере", "disc_load_3": "Лекция, Практика, СРОП", "disc_lang_3": "Русский, Казахский", "disc_period_3": "1 семестр"
         }
-    }
+    },
 }
 
 # 1. Тестовый GET-маршрут (для проверки в браузере через параметры)
@@ -260,6 +262,7 @@ def index():
     # По умолчанию берем почту студента, если ничего не передано
     email = request.args.get('email', 'm25359558@gmail.com').strip()
     
+    USERS_DB = {**STUDENT_DB, **TEACHER_DB}
     user_data = USERS_DB.get(email)
     if user_data:
         return jsonify(user_data), 200, headers
