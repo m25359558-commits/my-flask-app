@@ -170,7 +170,7 @@ STUDENT_DB = {
             {"name": "Иностранный язык по социально-гуманитарному и естественно-научному направлению", "code": "IYaSGENN B01", "credits": 5, "rk1": "-", "rk2": "-", "exam": "-", "total_score": "82", "gpa": "3.00"}
         ]
     },
-     "m25359558@gmail.com": {
+     "m2@gmail.com": {
         "role": "student",
         "personal_info": {
             "ID_student": "5",
