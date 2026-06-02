@@ -133,7 +133,7 @@ STUDENT_DB = {
                         "code": "UP B01",
                         "credits": 5,
                         "rk1": {"score": "90", "teacher": "Головчун А. А."},
-                        "rk2": {"score": "90", "teacher": "Головчун А. А."},
+                        "rk2": {"score": "75", "teacher_name": "Иванов Иван Иванович","ID_Teacher": "2"},
                         "exam": "-",
                         "total_percent": "-",
                         "total_score": "-",
