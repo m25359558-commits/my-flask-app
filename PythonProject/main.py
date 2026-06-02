@@ -132,7 +132,7 @@ STUDENT_DB = {
                         "name": "Услуги по переводу",
                         "code": "UP B01",
                         "credits": 5,
-                        "rk1": {"score": "90", "teacher": "Головчун А. А."},
+                        "rk1": {"score": "90", "teacher": "Иванов Петро Иванович.","ID_Teacher": "3"},
                         "rk2": {"score": "75", "teacher": "Иванов Иван Иванович","ID_Teacher": "2"},
                         "exam": "-",
                         "total_percent": "-",
@@ -185,6 +185,85 @@ TEACHER_DB = {
             "mob_phone": "+7(777)123-45-67",
             "work_phone": "+7(727)260-40-07",
             "work_phone2": "1030",
+            "body": "павильон №1/UN 301",
+            "Birthday": "Мужской/10 октября"
+        },
+        "professional_info": {
+            "status": "работает",
+            "division": "депортамент по академическим вопросам",
+            "faculty": "Информационные технологии",
+            "department": "Программная инженерия",
+            "position": "Директор",
+            "bet": "1",
+            "photo_url": "https://img.freepik.com/premium-psd/portrait-attractive-calm-bearded-man-with-flawless-skin-isolated-light-transparent-background_410516-124384.jpg?w=740"
+        },
+        "additional_positions": {
+            "division": "Высшая школа информационных технологий",
+            "post": "проффесор",
+            "bet": "0.50"
+        },
+        "information_about_academic_degree": {
+            "academic_degree": "доктор наук",
+            "academic_degree1": "кандидант наук",
+            "branch_science": "технических наук",
+            "branch_science2": "физо-математическх наук",
+            "date_issue": "16.06.2011",
+            "date_issue2": "21.12.1993"
+        },
+        "Information_about_academic_title": {
+            "academic_rank_1": "Доцент",
+            "academic_rank_2": "Профессор",
+            "specialization_1": "Информатика, вычислительная техника и автоматизация",
+            "specialization_2": "Информатика",
+            "date_issue_1": "06.06.1997",
+            "date_issue_2": "28.04.2005"
+        },
+        "Information_about_professional_development": {
+            "discipline_profile1": "-", "discipline_profile2": "-", "discipline_profile3": "-", "discipline_profile4": "-",
+            "form_name_topic1": "Курс:IT-менеджмент и управление технологическими проектами",
+            "form_name_topic2": "Курс: Криптографическая защита и безопасность операционных и облачных IT - систем",
+            "form_name_topic3": "Курс: IT- менеджмент и управление технологическими пректами",
+            "form_name_topic4": "Курс: IT- менеджмент и управление цифровыми пректами",
+            "data1": "02.02.2026", "data2": "02.02.2026", "data3": "02.02.2026", "data4": "02.02.2026"
+        },
+        "Identifiers_author_scientific_papers": {
+            "ORC_ID": "0000-0001-8280-1837",
+            "Researcher_ID": "JPE-5229-2023",
+            "Scopus Author ID": "5146458424588",
+            "Hirsch_Index": "-"
+        },
+        "scientific_statistics": {
+            "pub_label": "Публикации", "pub_total": "12", "pub_5y": "6", "pub_is_sub": False,
+            "scopus_label": "Scopus", "scopus_total": "3", "scopus_5y": "2", "scopus_is_sub": True,
+            "wos_label": "WoS", "wos_total": "0", "wos_5y": "0", "wos_is_sub": True,
+            "rinc_label": "РИНЦ", "rinc_total": "0", "rinc_5y": "0", "rinc_is_sub": True,
+            "koks_label": "Комитет по обеспечению качества в сфере нвуки и высшего образования МНВО РК (КОКСНВО МНВО РК)", "koks_total": "0", "koks_5y": "0", "koks_is_sub": True,
+            "other_label": "Иное", "other_total": "9", "other_5y": "4", "other_is_sub": True,
+            "docs_label": "Охранные документы", "docs_total": "0", "docs_5y": "×", "docs_is_sub": False,
+            "nir_label": "Договоры НИР", "nir_total": "0", "nir_5y": "×", "nir_is_sub": False
+        },
+        "scientific_info": {
+            "sci_dir_1": "Естественные науки, математика и статистика", "sci_role_1": "Автор", "sci_title_1": "Монография: Математическое моделирование напряженно-деформированного состояния оболочечных конструкций", "sci_level_1": "Республиканский",
+            "sci_dir_2": "Информационно-коммуникационные технологии", "sci_role_2": "Автор", "sci_title_2": "Учебное пособие: Жүйелік Бағдармалау", "sci_level_2": "Республиканский",
+            "sci_dir_3": "Бизнес, управление и право", "sci_role_3": "Автор", "sci_title_3": "Учебное пособие: ЖОБАЛАРДЫ БАСҚАРУ: MS PROJECT БОЙЫНША", "sci_level_3": "Республиканский"
+        },
+        "discipline_info": {
+            "disc_name_1": "PVSOUTU M01 - Практикум по внедрению стандартов в области управления IT услугами", "disc_load_1": "Лекция, Практика, СРОП", "disc_lang_1": "Русский", "disc_period_1": "1 семестр",
+            "disc_name_2": "IODH M01 - ITSM: обзор и основные характеристики ITIL", "disc_load_2": "Лекция, Практика, СРОП", "disc_lang_2": "Русский, Казахский", "disc_period_2": "1 семестр",
+            "disc_name_3": "SMI M01 - Стратегический менеджмент в ИТ сфере", "disc_load_3": "Лекция, Практика, СРОП", "disc_lang_3": "Русский, Казахский", "disc_period_3": "1 семестр"
+        }
+    },
+    "38187@turan-edu.kz": {
+        "role": "teacher",
+        "personal_info": {
+            "ID_Teacher": "3",
+            "full_name": "Иванов петро Иванович",
+            "work": "Депортамент по академическим вопросам/ директор",
+            "iin": "10020030",
+            "email": "30938888187@turan-edu.kz",
+            "mob_phone": "+7(777)123-45-67",
+            "work_phone": "+7(727)260-40-07",
+            "work_phone2": "10",
             "body": "павильон №1/UN 301",
             "Birthday": "Мужской/10 октября"
         },
