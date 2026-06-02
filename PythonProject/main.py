@@ -256,17 +256,45 @@ TEACHER_DB = {
 }
 
 # 1. Тестовый GET-маршрут (для проверки в браузере через параметры)
+USERS_DB = {**STUDENT_DB, **TEACHER_DB}
+
+# 1. Универсальный GET-маршрут (теперь обрабатывает и роль с ID!)
 @app.route('/', methods=['GET'])
 def index():
     headers = {'Access-Control-Allow-Origin': '*'}
-    # По умолчанию берем почту студента, если ничего не передано
-    email = request.args.get('email', 'm25359558@gmail.com').strip()
     
-    USERS_DB = {**STUDENT_DB, **TEACHER_DB}
-    user_data = USERS_DB.get(email)
+    role = request.args.get('role')
+    id_teacher = request.args.get('ID_Teacher')
+    id_student = request.args.get('ID_student')
+    email = request.args.get('email')
+
+    # Сценарий А: Flutter запрашивает Преподавателя по ID
+    if role == 'teacher' and id_teacher:
+        for user in TEACHER_DB.values():
+            if user.get('personal_info', {}).get('ID_Teacher') == id_teacher:
+                return jsonify(user), 200, headers
+        return jsonify({"error": f"Преподаватель с ID {id_teacher} не найден"}), 404, headers
+
+    # Сценарий Б: Flutter запрашивает Студента по ID
+    if role == 'student' and id_student:
+        for user in STUDENT_DB.values():
+            if user.get('personal_info', {}).get('ID_student') == id_student:
+                return jsonify(user), 200, headers
+        return jsonify({"error": f"Студент с ID {id_student} не найден"}), 404, headers
+
+    # Сценарий В: Flutter запрашивает всех пользователей по роли (метод getUsersByRole)
+    if role and not id_teacher and not id_student:
+        target_db = STUDENT_DB if role == 'student' else TEACHER_DB
+        return jsonify(list(target_db.values())), 200, headers
+
+    # Сценарий Г: Запрос по email (для авторизации или тестов в браузере)
+    search_email = email.strip() if email else 'm25359558@gmail.com'
+    user_data = USERS_DB.get(search_email)
     if user_data:
         return jsonify(user_data), 200, headers
+        
     return jsonify({"error": "Пользователь не найден"}), 404, headers
+
 
 # 2. Основной маршрут авторизации по Email для Flutter (POST-запрос)
 @app.route('/api/auth/email', methods=['POST', 'OPTIONS'])
@@ -284,26 +312,19 @@ def auth_email():
     if not data:
         return jsonify({"error": "Пустой JSON запрос"}), 400
 
-    # Достаем email, пришедший из Flutter приложения
     email = data.get('email', '').strip()
-    
     if not email:
         return jsonify({"error": "Поле email пустое"}), 400
 
-    # Проверяем, совпала ли почта с кем-то в нашей USERS_DB
     user_data = USERS_DB.get(email)
-    
     if user_data:
-        # Если почта совпала — возвращаем все данные этого пользователя
         return jsonify(user_data), 200, headers
     else:
-        # Если почты нет в базе данных
         return jsonify({"error": "Неверный Email или пользователь не существует"}), 404, headers
 
-# Локальный запуск
+
 if __name__ == "__main__":
-    print("\n[OK] Новая версия сервера успешно запущена!")
-    print("[GET СТУДЕНТ]: http://127.0.0.1:5000/?email=m25359558@gmail.com")
-    print("[GET ПРЕПОДАВАТЕЛЬ]: http://127.0.0.1:5000/?email=30938888187@turan-edu.kz")
-    print("[POST АВТОРИЗАЦИЯ ИЗ FLUTTER]: http://127.0.0.1:5000/api/auth/email")
+    print("\n[OK] Обновленный сервер успешно запущен!")
+    print("[Поиск Преподавателя по ID 2]: http://127.0.0.1:5000/?role=teacher&ID_Teacher=2")
+    print("[Поиск Студента по ID 1]: http://127.0.0.1:5000/?role=student&ID_student=1")
     app.run(host='0.0.0.0', port=5000)
