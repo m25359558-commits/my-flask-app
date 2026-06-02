@@ -255,10 +255,9 @@ TEACHER_DB = {
     },
 }
 
-# 1. Тестовый GET-маршрут (для проверки в браузере через параметры)
 USERS_DB = {**STUDENT_DB, **TEACHER_DB}
 
-# 1. Универсальный GET-маршрут (теперь обрабатывает и роль с ID!)
+# 1. Универсальный GET-маршрут (с высшим приоритетом для email)
 @app.route('/', methods=['GET'])
 def index():
     headers = {'Access-Control-Allow-Origin': '*'}
@@ -267,6 +266,14 @@ def index():
     id_teacher = request.args.get('ID_Teacher')
     id_student = request.args.get('ID_student')
     email = request.args.get('email')
+
+    # ПРИОРИТЕТ 1: Запрос по email (для авторизации или тестов)
+    # Если передан email, сразу отдаем пользователя и игнорируем остальные параметры
+    if email:
+        user_data = USERS_DB.get(email.strip())
+        if user_data:
+            return jsonify(user_data), 200, headers
+        return jsonify({"error": "Пользователь не найден"}), 404, headers
 
     # Сценарий А: Flutter запрашивает Преподавателя по ID
     if role == 'teacher' and id_teacher:
@@ -287,13 +294,12 @@ def index():
         target_db = STUDENT_DB if role == 'student' else TEACHER_DB
         return jsonify(list(target_db.values())), 200, headers
 
-    # Сценарий Г: Запрос по email (для авторизации или тестов в браузере)
-    search_email = email.strip() if email else 'm25359558@gmail.com'
-    user_data = USERS_DB.get(search_email)
-    if user_data:
-        return jsonify(user_data), 200, headers
+    # Сценарий Г: Фолбек, если вызвали корень вообще без параметров (например, из браузера)
+    default_user = USERS_DB.get('m25359558@gmail.com')
+    if default_user:
+        return jsonify(default_user), 200, headers
         
-    return jsonify({"error": "Пользователь не найден"}), 404, headers
+    return jsonify({"error": "Неверные параметры запроса"}), 400, headers
 
 
 # 2. Основной маршрут авторизации по Email для Flutter (POST-запрос)
