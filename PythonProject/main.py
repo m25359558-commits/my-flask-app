@@ -178,7 +178,7 @@ TEACHER_DB = {
         "role": "teacher",
         "personal_info": {
             "ID_Teacher": "2",
-            "full_name": "Иванов Иван Иванович",
+            "full_name": "Михаил миххх",
             "work": "Депортамент по академическим вопросам/ директор",
             "iin": "10020030",
             "email": "30938888187@turan-edu.kz",
